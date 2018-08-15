@@ -1,6 +1,6 @@
 class DeductionsController < ApplicationController
   def index
-    @deductions = Deduction.all
+    @deductions = Deduction.page(params[:page]).per(10)
 
     render("deductions/index.html.erb")
   end

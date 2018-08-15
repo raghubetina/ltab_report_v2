@@ -1,6 +1,6 @@
 class CheckinsController < ApplicationController
   def index
-    @checkins = Checkin.all
+    @checkins = Checkin.page(params[:page]).per(10)
 
     render("checkins/index.html.erb")
   end

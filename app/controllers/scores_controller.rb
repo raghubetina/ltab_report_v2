@@ -1,6 +1,6 @@
 class ScoresController < ApplicationController
   def index
-    @scores = Score.all
+    @scores = Score.page(params[:page]).per(10)
 
     render("scores/index.html.erb")
   end

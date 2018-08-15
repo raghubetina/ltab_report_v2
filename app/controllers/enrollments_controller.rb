@@ -1,6 +1,6 @@
 class EnrollmentsController < ApplicationController
   def index
-    @enrollments = Enrollment.all
+    @enrollments = Enrollment.page(params[:page]).per(10)
 
     render("enrollments/index.html.erb")
   end

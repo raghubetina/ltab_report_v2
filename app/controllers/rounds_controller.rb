@@ -1,6 +1,6 @@
 class RoundsController < ApplicationController
   def index
-    @rounds = Round.all
+    @rounds = Round.page(params[:page]).per(10)
 
     render("rounds/index.html.erb")
   end

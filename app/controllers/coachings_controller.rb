@@ -10,7 +10,7 @@ class CoachingsController < ApplicationController
   end
 
   def index
-    @coachings = Coaching.all
+    @coachings = Coaching.page(params[:page]).per(10)
 
     render("coachings/index.html.erb")
   end

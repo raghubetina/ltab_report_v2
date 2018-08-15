@@ -1,6 +1,6 @@
 class PenaltiesController < ApplicationController
   def index
-    @penalties = Penalty.all
+    @penalties = Penalty.page(params[:page]).per(10)
 
     render("penalties/index.html.erb")
   end

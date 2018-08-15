@@ -1,6 +1,6 @@
 class BoutsController < ApplicationController
   def index
-    @bouts = Bout.all
+    @bouts = Bout.page(params[:page]).per(10)
 
     render("bouts/index.html.erb")
   end
