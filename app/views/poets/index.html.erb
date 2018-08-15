@@ -19,7 +19,7 @@
 
       <% @poets.each do |poet| %>
       <tr>
-        <td><%= poet.team_id %></td>
+        <td><%= poet.team.organization_name %></td>
         <td><%= poet.first_name %></td>
         <td><%= poet.last_name %></td>
         <td><%= poet.phone_number %></td>
