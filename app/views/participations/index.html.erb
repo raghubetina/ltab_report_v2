@@ -20,7 +20,7 @@
       <% @participations.each do |participation| %>
       <tr>
         <td><%= participation.team.organization_name %></td>
-        <td><%= participation.competition_id %></td>
+        <td><%= participation.competition.name %></td>
         <td><%= participation.finals %></td>
         <td><%= participation.semifinals %></td>
         <td><%= participation.quarterfinals %></td>
