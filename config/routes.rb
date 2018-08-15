@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Round resource:
+  # CREATE
+  get "/rounds/new", :controller => "rounds", :action => "new"
+  post "/create_round", :controller => "rounds", :action => "create"
+
+  # READ
+  get "/rounds", :controller => "rounds", :action => "index"
+  get "/rounds/:id", :controller => "rounds", :action => "show"
+
+  # UPDATE
+  get "/rounds/:id/edit", :controller => "rounds", :action => "edit"
+  post "/update_round/:id", :controller => "rounds", :action => "update"
+
+  # DELETE
+  get "/delete_round/:id", :controller => "rounds", :action => "destroy"
+  #------------------------------
+
   # Routes for the Poet resource:
   # CREATE
   get "/poets/new", :controller => "poets", :action => "new"
