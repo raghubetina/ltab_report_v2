@@ -24,7 +24,7 @@
           Bout
         </label>
 
-        <input type="text" id="bout_id" name="bout_id" placeholder="Bout" class="form-control" value="<%= @round.bout_id %>">
+        <%= select_tag(:bout_id, options_from_collection_for_select(Bout.all, :id, :title, @round.bout_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for number -->
