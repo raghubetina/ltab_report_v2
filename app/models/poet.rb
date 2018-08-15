@@ -1,6 +1,9 @@
 class Poet < ApplicationRecord
   # Direct associations
 
+  has_many   :checkins,
+             :dependent => :destroy
+
   has_many   :poems,
              :dependent => :destroy
 
