@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Team</dt>
-      <dd><%= @participation.team_id %></dd>
+      <dd>
+        <% if @participation.team.present? %>
+          <a href="/teams/<%= @participation.team_id %>">
+            <%= @participation.team.organization_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Competition</dt>
-      <dd><%= @participation.competition_id %></dd>
+      <dd>
+        <% if @participation.competition.present? %>
+          <a href="/competitions/<%= @participation.competition_id %>">
+            <%= @participation.competition.name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Finals</dt>
       <dd><%= @participation.finals %></dd>

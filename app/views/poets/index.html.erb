@@ -19,7 +19,13 @@
 
       <% @poets.each do |poet| %>
       <tr>
-        <td><%= poet.team.organization_name %></td>
+        <td>
+          <% if poet.team.present? %>
+            <a href="/teams/<%= poet.team.id %>">
+              <%= poet.team.organization_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= poet.first_name %></td>
         <td><%= poet.last_name %></td>
         <td><%= poet.phone_number %></td>

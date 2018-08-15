@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Round</dt>
-      <dd><%= @poem.round_id %></dd>
+      <dd>
+        <% if @poem.round.present? %>
+          <a href="/rounds/<%= @poem.round_id %>">
+            <%= @poem.round.number %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Poet</dt>
-      <dd><%= @poem.poet_id %></dd>
+      <dd>
+        <% if @poem.poet.present? %>
+          <a href="/poets/<%= @poem.poet_id %>">
+            <%= @poem.poet.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Minutes</dt>
       <dd><%= @poem.minutes %></dd>

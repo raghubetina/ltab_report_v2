@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Team</dt>
-      <dd><%= @coaching.team_id %></dd>
+      <dd>
+        <% if @coaching.team.present? %>
+          <a href="/teams/<%= @coaching.team_id %>">
+            <%= @coaching.team.organization_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>User</dt>
-      <dd><%= @coaching.user_id %></dd>
+      <dd>
+        <% if @coaching.user.present? %>
+          <a href="/users/<%= @coaching.user_id %>">
+            <%= @coaching.user.email %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -19,8 +19,20 @@
 
       <% @poems.each do |poem| %>
       <tr>
-        <td><%= poem.round.number %></td>
-        <td><%= poem.poet.first_name %></td>
+        <td>
+          <% if poem.round.present? %>
+            <a href="/rounds/<%= poem.round.id %>">
+              <%= poem.round.number %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if poem.poet.present? %>
+            <a href="/poets/<%= poem.poet.id %>">
+              <%= poem.poet.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= poem.minutes %></td>
         <td><%= poem.seconds %></td>
         <td><%= poem.notes %></td>

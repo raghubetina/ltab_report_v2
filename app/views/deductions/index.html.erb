@@ -16,8 +16,20 @@
 
       <% @deductions.each do |deduction| %>
       <tr>
-        <td><%= deduction.poem.round_id %></td>
-        <td><%= deduction.penalty.title %></td>
+        <td>
+          <% if deduction.poem.present? %>
+            <a href="/poems/<%= deduction.poem.id %>">
+              <%= deduction.poem.round_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if deduction.penalty.present? %>
+            <a href="/penalties/<%= deduction.penalty.id %>">
+              <%= deduction.penalty.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/deductions/<%= deduction.id %>" class="btn btn-primary">Show</a>
           <a href="/deductions/<%= deduction.id %>/edit" class="btn btn-warning">Edit</a>

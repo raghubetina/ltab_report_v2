@@ -6,10 +6,22 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Poet</dt>
-      <dd><%= @checkin.poet_id %></dd>
+      <dd>
+        <% if @checkin.poet.present? %>
+          <a href="/poets/<%= @checkin.poet_id %>">
+            <%= @checkin.poet.first_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Bout</dt>
-      <dd><%= @checkin.bout_id %></dd>
+      <dd>
+        <% if @checkin.bout.present? %>
+          <a href="/bouts/<%= @checkin.bout_id %>">
+            <%= @checkin.bout.title %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

@@ -17,8 +17,20 @@
 
       <% @availabilities.each do |availability| %>
       <tr>
-        <td><%= availability.participation.team_id %></td>
-        <td><%= availability.bout.title %></td>
+        <td>
+          <% if availability.participation.present? %>
+            <a href="/participations/<%= availability.participation.id %>">
+              <%= availability.participation.team_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if availability.bout.present? %>
+            <a href="/bouts/<%= availability.bout.id %>">
+              <%= availability.bout.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= availability.assigned %></td>
         <td>
           <a href="/availabilities/<%= availability.id %>" class="btn btn-primary">Show</a>

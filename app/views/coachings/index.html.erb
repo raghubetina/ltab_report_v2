@@ -16,8 +16,20 @@
 
       <% @coachings.each do |coaching| %>
       <tr>
-        <td><%= coaching.team.organization_name %></td>
-        <td><%= coaching.user.email %></td>
+        <td>
+          <% if coaching.team.present? %>
+            <a href="/teams/<%= coaching.team.id %>">
+              <%= coaching.team.organization_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if coaching.user.present? %>
+            <a href="/users/<%= coaching.user.id %>">
+              <%= coaching.user.email %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/coachings/<%= coaching.id %>" class="btn btn-primary">Show</a>
           

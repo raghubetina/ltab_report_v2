@@ -16,8 +16,20 @@
 
       <% @checkins.each do |checkin| %>
       <tr>
-        <td><%= checkin.poet.first_name %></td>
-        <td><%= checkin.bout.title %></td>
+        <td>
+          <% if checkin.poet.present? %>
+            <a href="/poets/<%= checkin.poet.id %>">
+              <%= checkin.poet.first_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if checkin.bout.present? %>
+            <a href="/bouts/<%= checkin.bout.id %>">
+              <%= checkin.bout.title %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/checkins/<%= checkin.id %>" class="btn btn-primary">Show</a>
           <a href="/checkins/<%= checkin.id %>/edit" class="btn btn-warning">Edit</a>

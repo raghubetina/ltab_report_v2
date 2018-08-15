@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Bout</dt>
-      <dd><%= @round.bout_id %></dd>
+      <dd>
+        <% if @round.bout.present? %>
+          <a href="/bouts/<%= @round.bout_id %>">
+            <%= @round.bout.title %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>Number</dt>
       <dd><%= @round.number %></dd>

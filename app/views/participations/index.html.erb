@@ -19,8 +19,20 @@
 
       <% @participations.each do |participation| %>
       <tr>
-        <td><%= participation.team.organization_name %></td>
-        <td><%= participation.competition.name %></td>
+        <td>
+          <% if participation.team.present? %>
+            <a href="/teams/<%= participation.team.id %>">
+              <%= participation.team.organization_name %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if participation.competition.present? %>
+            <a href="/competitions/<%= participation.competition.id %>">
+              <%= participation.competition.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= participation.finals %></td>
         <td><%= participation.semifinals %></td>
         <td><%= participation.quarterfinals %></td>

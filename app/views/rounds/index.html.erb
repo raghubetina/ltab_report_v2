@@ -16,7 +16,13 @@
 
       <% @rounds.each do |round| %>
       <tr>
-        <td><%= round.bout.title %></td>
+        <td>
+          <% if round.bout.present? %>
+            <a href="/bouts/<%= round.bout.id %>">
+              <%= round.bout.title %>
+            </a>
+          <% end %>
+        </td>
         <td><%= round.number %></td>
         <td>
           <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show</a>

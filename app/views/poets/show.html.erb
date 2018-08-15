@@ -6,7 +6,13 @@
   <div class="col-md-12 mb-2">
     <dl class="dl-horizontal">
       <dt>Team</dt>
-      <dd><%= @poet.team_id %></dd>
+      <dd>
+        <% if @poet.team.present? %>
+          <a href="/teams/<%= @poet.team_id %>">
+            <%= @poet.team.organization_name %>
+          </a>
+        <% end %>
+      </dd>
 
       <dt>First name</dt>
       <dd><%= @poet.first_name %></dd>

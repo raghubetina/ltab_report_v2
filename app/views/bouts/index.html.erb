@@ -19,7 +19,13 @@
 
       <% @bouts.each do |bout| %>
       <tr>
-        <td><%= bout.competition.name %></td>
+        <td>
+          <% if bout.competition.present? %>
+            <a href="/competitions/<%= bout.competition.id %>">
+              <%= bout.competition.name %>
+            </a>
+          <% end %>
+        </td>
         <td><%= bout.begins_at %></td>
         <td><%= bout.location %></td>
         <td><%= bout.title %></td>

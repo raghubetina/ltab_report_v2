@@ -12,7 +12,13 @@
       <dd><%= @score.points %></dd>
 
       <dt>Poem</dt>
-      <dd><%= @score.poem_id %></dd>
+      <dd>
+        <% if @score.poem.present? %>
+          <a href="/poems/<%= @score.poem_id %>">
+            <%= @score.poem.round_id %>
+          </a>
+        <% end %>
+      </dd>
 
     </dl>
 

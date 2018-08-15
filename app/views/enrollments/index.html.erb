@@ -16,8 +16,20 @@
 
       <% @enrollments.each do |enrollment| %>
       <tr>
-        <td><%= enrollment.participation.team_id %></td>
-        <td><%= enrollment.poet.first_name %></td>
+        <td>
+          <% if enrollment.participation.present? %>
+            <a href="/participations/<%= enrollment.participation.id %>">
+              <%= enrollment.participation.team_id %>
+            </a>
+          <% end %>
+        </td>
+        <td>
+          <% if enrollment.poet.present? %>
+            <a href="/poets/<%= enrollment.poet.id %>">
+              <%= enrollment.poet.first_name %>
+            </a>
+          <% end %>
+        </td>
         <td>
           <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">Show</a>
           <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">Edit</a>
