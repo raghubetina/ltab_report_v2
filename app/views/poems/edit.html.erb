@@ -24,7 +24,7 @@
           Round
         </label>
 
-        <input type="text" id="round_id" name="round_id" placeholder="Round" class="form-control" value="<%= @poem.round_id %>">
+        <%= select_tag(:round_id, options_from_collection_for_select(Round.all, :id, :number, @poem.round_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for poet_id -->
