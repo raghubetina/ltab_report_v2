@@ -17,7 +17,7 @@
       <% @coachings.each do |coaching| %>
       <tr>
         <td><%= coaching.team.organization_name %></td>
-        <td><%= coaching.user_id %></td>
+        <td><%= coaching.user.email %></td>
         <td>
           <a href="/coachings/<%= coaching.id %>" class="btn btn-primary">Show</a>
           <a href="/coachings/<%= coaching.id %>/edit" class="btn btn-warning">Edit</a>
