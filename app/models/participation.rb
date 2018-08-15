@@ -13,6 +13,10 @@ class Participation < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :poets,
+             :through => :enrollments,
+             :source => :poet
+
   # Validations
 
 end

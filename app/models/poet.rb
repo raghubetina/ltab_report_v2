@@ -14,6 +14,10 @@ class Poet < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :participations,
+             :through => :enrollments,
+             :source => :participation
+
   # Validations
 
 end
