@@ -1,6 +1,9 @@
 class Poem < ApplicationRecord
   # Direct associations
 
+  has_many   :scores,
+             :dependent => :destroy
+
   has_many   :deductions,
              :dependent => :destroy
 
