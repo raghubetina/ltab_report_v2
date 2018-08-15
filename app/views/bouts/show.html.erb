@@ -63,6 +63,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_round" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for bout_id -->
+      <input type="hidden" name="bout_id" value="<%= @bout.id %>">
+
+      <!-- Label and input for number -->
+      <div class="form-group">
+        <label for="number" class="control-label">
+          Number
+        </label>
+
+        <input type="text" id="number" name="number" placeholder="Number" class="form-control" value="">
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Round
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -94,6 +117,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_availability" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for participation_id -->
+      <div class="form-group">
+        <label for="participation_id" class="control-label">
+          Participation
+        </label>
+
+        <%= select_tag(:participation_id, options_from_collection_for_select(Participation.all, :id, :team_id), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for bout_id -->
+      <input type="hidden" name="bout_id" value="<%= @bout.id %>">
+
+      <!-- Label and input for assigned -->
+      <div class="checkbox">
+        <label for="assigned">
+          <input type="checkbox" id="assigned" name="assigned" value="1" <%= "checked" if @availability.assigned %>>
+          Assigned
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Availability
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -125,6 +179,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_checkin" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for poet_id -->
+      <div class="form-group">
+        <label for="poet_id" class="control-label">
+          Poet
+        </label>
+
+        <%= select_tag(:poet_id, options_from_collection_for_select(Poet.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for bout_id -->
+      <input type="hidden" name="bout_id" value="<%= @bout.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Checkin
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

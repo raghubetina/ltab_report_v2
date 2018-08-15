@@ -6,6 +6,7 @@ class PenaltiesController < ApplicationController
   end
 
   def show
+    @deduction = Deduction.new
     @penalty = Penalty.find(params[:id])
 
     render("penalties/show.html.erb")

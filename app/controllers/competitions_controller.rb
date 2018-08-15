@@ -6,6 +6,8 @@ class CompetitionsController < ApplicationController
   end
 
   def show
+    @participation = Participation.new
+    @bout = Bout.new
     @competition = Competition.find(params[:id])
 
     render("competitions/show.html.erb")

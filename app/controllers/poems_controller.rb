@@ -6,6 +6,8 @@ class PoemsController < ApplicationController
   end
 
   def show
+    @score = Score.new
+    @deduction = Deduction.new
     @poem = Poem.find(params[:id])
 
     render("poems/show.html.erb")

@@ -63,6 +63,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_enrollment" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for participation_id -->
+      <input type="hidden" name="participation_id" value="<%= @participation.id %>">
+
+      <!-- Label and input for poet_id -->
+      <div class="form-group">
+        <label for="poet_id" class="control-label">
+          Poet
+        </label>
+
+        <%= select_tag(:poet_id, options_from_collection_for_select(Poet.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Enrollment
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -94,6 +117,37 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_availability" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for participation_id -->
+      <input type="hidden" name="participation_id" value="<%= @participation.id %>">
+
+      <!-- Label and input for bout_id -->
+      <div class="form-group">
+        <label for="bout_id" class="control-label">
+          Bout
+        </label>
+
+        <%= select_tag(:bout_id, options_from_collection_for_select(Bout.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for assigned -->
+      <div class="checkbox">
+        <label for="assigned">
+          <input type="checkbox" id="assigned" name="assigned" value="1" <%= "checked" if @availability.assigned %>>
+          Assigned
+        </label>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Availability
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

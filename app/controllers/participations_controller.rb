@@ -6,6 +6,8 @@ class ParticipationsController < ApplicationController
   end
 
   def show
+    @availability = Availability.new
+    @enrollment = Enrollment.new
     @participation = Participation.find(params[:id])
 
     render("participations/show.html.erb")

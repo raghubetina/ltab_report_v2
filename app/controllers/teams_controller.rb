@@ -6,6 +6,9 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @coaching = Coaching.new
+    @participation = Participation.new
+    @poet = Poet.new
     @team = Team.find(params[:id])
 
     render("teams/show.html.erb")

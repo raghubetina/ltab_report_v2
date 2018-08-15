@@ -6,6 +6,9 @@ class BoutsController < ApplicationController
   end
 
   def show
+    @checkin = Checkin.new
+    @availability = Availability.new
+    @round = Round.new
     @bout = Bout.find(params[:id])
 
     render("bouts/show.html.erb")

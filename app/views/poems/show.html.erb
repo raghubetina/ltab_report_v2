@@ -63,6 +63,29 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_deduction" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for poem_id -->
+      <input type="hidden" name="poem_id" value="<%= @poem.id %>">
+
+      <!-- Label and input for penalty_id -->
+      <div class="form-group">
+        <label for="penalty_id" class="control-label">
+          Penalty
+        </label>
+
+        <%= select_tag(:penalty_id, options_from_collection_for_select(Penalty.all, :id, :title), :class => "form-control") %>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Deduction
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
@@ -94,6 +117,38 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_score" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for position -->
+      <div class="form-group">
+        <label for="position" class="control-label">
+          Position
+        </label>
+
+        <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for points -->
+      <div class="form-group">
+        <label for="points" class="control-label">
+          Points
+        </label>
+
+        <input type="text" id="points" name="points" placeholder="Points" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for poem_id -->
+      <input type="hidden" name="poem_id" value="<%= @poem.id %>">
+
+      <button class="btn btn-block btn-success">
+        Create Score
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>

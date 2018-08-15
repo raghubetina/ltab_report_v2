@@ -6,6 +6,9 @@ class PoetsController < ApplicationController
   end
 
   def show
+    @checkin = Checkin.new
+    @poem = Poem.new
+    @enrollment = Enrollment.new
     @poet = Poet.find(params[:id])
 
     render("poets/show.html.erb")

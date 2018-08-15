@@ -6,6 +6,7 @@ class RoundsController < ApplicationController
   end
 
   def show
+    @poem = Poem.new
     @round = Round.find(params[:id])
 
     render("rounds/show.html.erb")

@@ -54,6 +54,56 @@
           </div>
         </li>
       <% end %>
+
+      <li class="list-group-item">
+        <form action="/create_poem" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for round_id -->
+      <input type="hidden" name="round_id" value="<%= @round.id %>">
+
+      <!-- Label and input for poet_id -->
+      <div class="form-group">
+        <label for="poet_id" class="control-label">
+          Poet
+        </label>
+
+        <%= select_tag(:poet_id, options_from_collection_for_select(Poet.all, :id, :first_name), :class => "form-control") %>
+      </div>
+
+      <!-- Label and input for minutes -->
+      <div class="form-group">
+        <label for="minutes" class="control-label">
+          Minutes
+        </label>
+
+        <input type="text" id="minutes" name="minutes" placeholder="Minutes" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for seconds -->
+      <div class="form-group">
+        <label for="seconds" class="control-label">
+          Seconds
+        </label>
+
+        <input type="text" id="seconds" name="seconds" placeholder="Seconds" class="form-control" value="">
+      </div>
+
+      <!-- Label and input for notes -->
+      <div class="form-group">
+        <label for="notes" class="control-label">
+          Notes
+        </label>
+
+        <textarea id="notes" name="notes" placeholder="Notes" class="form-control" rows="3"></textarea>
+      </div>
+
+      <button class="btn btn-block btn-success">
+        Create Poem
+      </button>
+    </form>
+      </li>
     </ul>
   </div>
 </div>
