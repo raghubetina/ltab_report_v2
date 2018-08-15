@@ -33,7 +33,7 @@
           Poet
         </label>
 
-        <input type="text" id="poet_id" name="poet_id" placeholder="Poet" class="form-control" value="<%= @enrollment.poet_id %>">
+        <%= select_tag(:poet_id, options_from_collection_for_select(Poet.all, :id, :first_name, @enrollment.poet_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
