@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Competition resource:
+  # CREATE
+  get "/competitions/new", :controller => "competitions", :action => "new"
+  post "/create_competition", :controller => "competitions", :action => "create"
+
+  # READ
+  get "/competitions", :controller => "competitions", :action => "index"
+  get "/competitions/:id", :controller => "competitions", :action => "show"
+
+  # UPDATE
+  get "/competitions/:id/edit", :controller => "competitions", :action => "edit"
+  post "/update_competition/:id", :controller => "competitions", :action => "update"
+
+  # DELETE
+  get "/delete_competition/:id", :controller => "competitions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Bout resource:
   # CREATE
   get "/bouts/new", :controller => "bouts", :action => "new"
