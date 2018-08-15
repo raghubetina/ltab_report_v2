@@ -24,7 +24,7 @@
           Participation
         </label>
 
-        <input type="text" id="participation_id" name="participation_id" placeholder="Participation" class="form-control" value="<%= @availability.participation_id %>">
+        <%= select_tag(:participation_id, options_from_collection_for_select(Participation.all, :id, :team_id, @availability.participation_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for bout_id -->
