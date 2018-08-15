@@ -1,0 +1,73 @@
+<!-- Validation failure messages -->
+<% if @bout.errors.any? %>
+  <% @bout.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Bout</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_bout" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for competition_id -->
+      <div class="form-group">
+        <label for="competition_id" class="control-label">
+          Competition
+        </label>
+
+        <input type="text" id="competition_id" name="competition_id" placeholder="Competition" class="form-control" value="<%= @bout.competition_id %>">
+      </div>
+
+      <!-- Label and input for begins_at -->
+      <div class="form-group">
+        <label for="begins_at" class="control-label">
+          Begins at
+        </label>
+
+        <input type="text" id="begins_at" name="begins_at" placeholder="Begins at" class="form-control" value="<%= @bout.begins_at %>">
+      </div>
+
+      <!-- Label and input for location -->
+      <div class="form-group">
+        <label for="location" class="control-label">
+          Location
+        </label>
+
+        <input type="text" id="location" name="location" placeholder="Location" class="form-control" value="<%= @bout.location %>">
+      </div>
+
+      <!-- Label and input for title -->
+      <div class="form-group">
+        <label for="title" class="control-label">
+          Title
+        </label>
+
+        <input type="text" id="title" name="title" placeholder="Title" class="form-control" value="<%= @bout.title %>">
+      </div>
+
+      <!-- Label and input for length -->
+      <div class="form-group">
+        <label for="length" class="control-label">
+          Length
+        </label>
+
+        <input type="text" id="length" name="length" placeholder="Length" class="form-control" value="<%= @bout.length %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Bout
+      </button>
+      or
+      <a href="/bouts">Cancel</a>
+    </form>
+  </div>
+</div>

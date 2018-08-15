@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Bouts
+    <a href="/bouts/new" class="btn btn-lg btn-success">New Bout</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Competition</th>
+        <th>Begins at</th>
+        <th>Location</th>
+        <th>Title</th>
+        <th>Length</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @bouts.each do |bout| %>
+      <tr>
+        <td><%= bout.competition_id %></td>
+        <td><%= bout.begins_at %></td>
+        <td><%= bout.location %></td>
+        <td><%= bout.title %></td>
+        <td><%= bout.length %></td>
+        <td>
+          <a href="/bouts/<%= bout.id %>" class="btn btn-primary">Show</a>
+          <a href="/bouts/<%= bout.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_bout/<%= bout.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
