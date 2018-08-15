@@ -19,7 +19,7 @@
 
       <% @bouts.each do |bout| %>
       <tr>
-        <td><%= bout.competition_id %></td>
+        <td><%= bout.competition.name %></td>
         <td><%= bout.begins_at %></td>
         <td><%= bout.location %></td>
         <td><%= bout.title %></td>
