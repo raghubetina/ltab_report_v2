@@ -24,7 +24,7 @@
           Competition
         </label>
 
-        <input type="text" id="competition_id" name="competition_id" placeholder="Competition" class="form-control" value="<%= @bout.competition_id %>">
+        <%= select_tag(:competition_id, options_from_collection_for_select(Competition.all, :id, :name, @bout.competition_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for begins_at -->
