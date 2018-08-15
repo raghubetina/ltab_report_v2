@@ -1,0 +1,31 @@
+<div class="page-header">
+  <h3>Score #<%= @score.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Position</dt>
+      <dd><%= @score.position %></dd>
+
+      <dt>Points</dt>
+      <dd><%= @score.points %></dd>
+
+      <dt>Poem</dt>
+      <dd><%= @score.poem_id %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/scores" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/scores/<%= @score.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_score/<%= @score.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

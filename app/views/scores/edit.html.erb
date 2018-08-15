@@ -1,0 +1,55 @@
+<!-- Validation failure messages -->
+<% if @score.errors.any? %>
+  <% @score.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Score #<%= @score.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_score/<%= @score.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for position -->
+      <div class="form-group">
+        <label for="position" class="control-label">
+          Position
+        </label>
+
+        <input type="text" id="position" name="position" placeholder="Position" class="form-control" value="<%= @score.position %>">
+      </div>
+
+      <!-- Label and input for points -->
+      <div class="form-group">
+        <label for="points" class="control-label">
+          Points
+        </label>
+
+        <input type="text" id="points" name="points" placeholder="Points" class="form-control" value="<%= @score.points %>">
+      </div>
+
+      <!-- Label and input for poem_id -->
+      <div class="form-group">
+        <label for="poem_id" class="control-label">
+          Poem
+        </label>
+
+        <input type="text" id="poem_id" name="poem_id" placeholder="Poem" class="form-control" value="<%= @score.poem_id %>">
+      </div>
+
+      <button class="btn btn-warning">
+        Update Score
+      </button>
+      or
+      <a href="/scores/<%= @score.id %>">Cancel</a>
+    </form>
+  </div>
+</div>

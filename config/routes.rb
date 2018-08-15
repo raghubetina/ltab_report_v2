@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Score resource:
+  # CREATE
+  get "/scores/new", :controller => "scores", :action => "new"
+  post "/create_score", :controller => "scores", :action => "create"
+
+  # READ
+  get "/scores", :controller => "scores", :action => "index"
+  get "/scores/:id", :controller => "scores", :action => "show"
+
+  # UPDATE
+  get "/scores/:id/edit", :controller => "scores", :action => "edit"
+  post "/update_score/:id", :controller => "scores", :action => "update"
+
+  # DELETE
+  get "/delete_score/:id", :controller => "scores", :action => "destroy"
+  #------------------------------
+
   # Routes for the Penalty resource:
   # CREATE
   get "/penalties/new", :controller => "penalties", :action => "new"
