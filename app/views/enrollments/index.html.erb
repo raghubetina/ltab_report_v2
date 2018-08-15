@@ -16,7 +16,7 @@
 
       <% @enrollments.each do |enrollment| %>
       <tr>
-        <td><%= enrollment.participation_id %></td>
+        <td><%= enrollment.participation.team_id %></td>
         <td><%= enrollment.poet_id %></td>
         <td>
           <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">Show</a>
