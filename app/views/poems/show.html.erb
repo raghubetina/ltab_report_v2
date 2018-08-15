@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Poem #<%= @poem.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Round</dt>
+      <dd><%= @poem.round_id %></dd>
+
+      <dt>Poet</dt>
+      <dd><%= @poem.poet_id %></dd>
+
+      <dt>Minutes</dt>
+      <dd><%= @poem.minutes %></dd>
+
+      <dt>Seconds</dt>
+      <dd><%= @poem.seconds %></dd>
+
+      <dt>Notes</dt>
+      <dd><%= @poem.notes %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/poems" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/poems/<%= @poem.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_poem/<%= @poem.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

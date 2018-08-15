@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Poem resource:
+  # CREATE
+  get "/poems/new", :controller => "poems", :action => "new"
+  post "/create_poem", :controller => "poems", :action => "create"
+
+  # READ
+  get "/poems", :controller => "poems", :action => "index"
+  get "/poems/:id", :controller => "poems", :action => "show"
+
+  # UPDATE
+  get "/poems/:id/edit", :controller => "poems", :action => "edit"
+  post "/update_poem/:id", :controller => "poems", :action => "update"
+
+  # DELETE
+  get "/delete_poem/:id", :controller => "poems", :action => "destroy"
+  #------------------------------
+
   # Routes for the Availability resource:
   # CREATE
   get "/availabilities/new", :controller => "availabilities", :action => "new"
