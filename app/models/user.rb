@@ -6,6 +6,10 @@ class User < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :teams,
+             :through => :coachings,
+             :source => :team
+
   # Validations
 
   # Include default devise modules. Others available are:

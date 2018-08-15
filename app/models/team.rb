@@ -12,6 +12,10 @@ class Team < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :coaches,
+             :through => :coachings,
+             :source => :user
+
   # Validations
 
 end
