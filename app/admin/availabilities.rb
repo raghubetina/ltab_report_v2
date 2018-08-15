@@ -1,4 +1,6 @@
 ActiveAdmin.register Availability do
+
+ permit_params :participation_id, :bout_id, :assigned
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
