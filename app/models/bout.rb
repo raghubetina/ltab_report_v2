@@ -1,6 +1,8 @@
 class Bout < ApplicationRecord
   # Direct associations
 
+  belongs_to :competition
+
   has_many   :checkins,
              :dependent => :destroy
 
