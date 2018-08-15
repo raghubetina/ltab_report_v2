@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Deduction resource:
+  # CREATE
+  get "/deductions/new", :controller => "deductions", :action => "new"
+  post "/create_deduction", :controller => "deductions", :action => "create"
+
+  # READ
+  get "/deductions", :controller => "deductions", :action => "index"
+  get "/deductions/:id", :controller => "deductions", :action => "show"
+
+  # UPDATE
+  get "/deductions/:id/edit", :controller => "deductions", :action => "edit"
+  post "/update_deduction/:id", :controller => "deductions", :action => "update"
+
+  # DELETE
+  get "/delete_deduction/:id", :controller => "deductions", :action => "destroy"
+  #------------------------------
+
   # Routes for the Score resource:
   # CREATE
   get "/scores/new", :controller => "scores", :action => "new"
