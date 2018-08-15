@@ -1,4 +1,14 @@
 class CoachingsController < ApplicationController
+  before_action :current_user_must_be_coaching_user, :only => [:edit, :update, :destroy]
+
+  def current_user_must_be_coaching_user
+    coaching = Coaching.find(params[:id])
+
+    unless current_user == coaching.user
+      redirect_to :back, :alert => "You are not authorized for that."
+    end
+  end
+
   def index
     @coachings = Coaching.all
 
