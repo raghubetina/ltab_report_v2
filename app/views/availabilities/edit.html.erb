@@ -1,0 +1,54 @@
+<!-- Validation failure messages -->
+<% if @availability.errors.any? %>
+  <% @availability.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Edit Availability #<%= @availability.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/update_availability/<%= @availability.id %>" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for participation_id -->
+      <div class="form-group">
+        <label for="participation_id" class="control-label">
+          Participation
+        </label>
+
+        <input type="text" id="participation_id" name="participation_id" placeholder="Participation" class="form-control" value="<%= @availability.participation_id %>">
+      </div>
+
+      <!-- Label and input for bout_id -->
+      <div class="form-group">
+        <label for="bout_id" class="control-label">
+          Bout
+        </label>
+
+        <input type="text" id="bout_id" name="bout_id" placeholder="Bout" class="form-control" value="<%= @availability.bout_id %>">
+      </div>
+
+      <!-- Label and input for assigned -->
+      <div class="checkbox">
+        <label for="assigned">
+          <input type="checkbox" id="assigned" name="assigned" value="1" <%= "checked" if @availability.assigned %>>
+          Assigned
+        </label>
+      </div>
+
+      <button class="btn btn-warning">
+        Update Availability
+      </button>
+      or
+      <a href="/availabilities/<%= @availability.id %>">Cancel</a>
+    </form>
+  </div>
+</div>
