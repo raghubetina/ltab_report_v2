@@ -24,7 +24,7 @@
           Poet
         </label>
 
-        <input type="text" id="poet_id" name="poet_id" placeholder="Poet" class="form-control" value="<%= @checkin.poet_id %>">
+        <%= select_tag(:poet_id, options_from_collection_for_select(Poet.all, :id, :first_name, @checkin.poet_id), :class => "form-control") %>
       </div>
 
       <!-- Label and input for bout_id -->
