@@ -1,0 +1,46 @@
+<!-- Validation failure messages -->
+<% if @checkin.errors.any? %>
+  <% @checkin.errors.full_messages.each do |message| %>
+    <div class="alert alert-dismissable alert-danger">
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <%= message %>
+    </div>
+  <% end %>
+<% end %>
+
+<div class="page-header">
+  <h3>Add Checkin</h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <form action="/create_checkin" method="post">
+      <!-- Hidden input for authenticity token to protect from forgery -->
+      <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+      <!-- Label and input for poet_id -->
+      <div class="form-group">
+        <label for="poet_id" class="control-label">
+          Poet
+        </label>
+
+        <input type="text" id="poet_id" name="poet_id" placeholder="Poet" class="form-control" value="<%= @checkin.poet_id %>">
+      </div>
+
+      <!-- Label and input for bout_id -->
+      <div class="form-group">
+        <label for="bout_id" class="control-label">
+          Bout
+        </label>
+
+        <input type="text" id="bout_id" name="bout_id" placeholder="Bout" class="form-control" value="<%= @checkin.bout_id %>">
+      </div>
+
+      <button class="btn btn-success">
+        Create Checkin
+      </button>
+      or
+      <a href="/checkins">Cancel</a>
+    </form>
+  </div>
+</div>

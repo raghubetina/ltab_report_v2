@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Checkin resource:
+  # CREATE
+  get "/checkins/new", :controller => "checkins", :action => "new"
+  post "/create_checkin", :controller => "checkins", :action => "create"
+
+  # READ
+  get "/checkins", :controller => "checkins", :action => "index"
+  get "/checkins/:id", :controller => "checkins", :action => "show"
+
+  # UPDATE
+  get "/checkins/:id/edit", :controller => "checkins", :action => "edit"
+  post "/update_checkin/:id", :controller => "checkins", :action => "update"
+
+  # DELETE
+  get "/delete_checkin/:id", :controller => "checkins", :action => "destroy"
+  #------------------------------
+
   # Routes for the Coaching resource:
   # CREATE
   get "/coachings/new", :controller => "coachings", :action => "new"
