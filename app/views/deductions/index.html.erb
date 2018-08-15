@@ -16,7 +16,7 @@
 
       <% @deductions.each do |deduction| %>
       <tr>
-        <td><%= deduction.poem_id %></td>
+        <td><%= deduction.poem.round_id %></td>
         <td><%= deduction.penalty_id %></td>
         <td>
           <a href="/deductions/<%= deduction.id %>" class="btn btn-primary">Show</a>
