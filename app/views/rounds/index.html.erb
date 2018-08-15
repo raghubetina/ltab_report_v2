@@ -16,7 +16,7 @@
 
       <% @rounds.each do |round| %>
       <tr>
-        <td><%= round.bout_id %></td>
+        <td><%= round.bout.title %></td>
         <td><%= round.number %></td>
         <td>
           <a href="/rounds/<%= round.id %>" class="btn btn-primary">Show</a>
