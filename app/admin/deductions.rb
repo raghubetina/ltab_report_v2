@@ -1,4 +1,6 @@
 ActiveAdmin.register Deduction do
+
+ permit_params :poem_id, :penalty_id
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
