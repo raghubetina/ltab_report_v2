@@ -1,4 +1,6 @@
 ActiveAdmin.register Participation do
+
+ permit_params :team_id, :competition_id, :finals, :semifinals, :quarterfinals
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
