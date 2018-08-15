@@ -42,7 +42,7 @@
           Poem
         </label>
 
-        <input type="text" id="poem_id" name="poem_id" placeholder="Poem" class="form-control" value="<%= @score.poem_id %>">
+        <%= select_tag(:poem_id, options_from_collection_for_select(Poem.all, :id, :round_id, @score.poem_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
