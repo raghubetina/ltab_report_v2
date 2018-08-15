@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  root :to => "teams#index"
   # Routes for the Checkin resource:
   # CREATE
   get "/checkins/new", :controller => "checkins", :action => "new"
