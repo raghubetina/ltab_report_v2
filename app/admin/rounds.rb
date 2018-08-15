@@ -1,4 +1,6 @@
 ActiveAdmin.register Round do
+
+ permit_params :bout_id, :number
 # See permitted parameters documentation:
 # https://github.com/activeadmin/activeadmin/blob/master/docs/2-resource-customization.md#setting-up-strong-parameters
 #
