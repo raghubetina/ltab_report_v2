@@ -1,6 +1,7 @@
 class DeductionsController < ApplicationController
   def index
-    @deductions = Deduction.page(params[:page]).per(10)
+    @q = Deduction.ransack(params[:q])
+    @deductions = @q.result(:distinct => true).includes(:poem, :penalty).page(params[:page]).per(10)
 
     render("deductions/index.html.erb")
   end

@@ -1,6 +1,7 @@
 class RoundsController < ApplicationController
   def index
-    @rounds = Round.page(params[:page]).per(10)
+    @q = Round.ransack(params[:q])
+    @rounds = @q.result(:distinct => true).includes(:bout, :poems).page(params[:page]).per(10)
 
     render("rounds/index.html.erb")
   end

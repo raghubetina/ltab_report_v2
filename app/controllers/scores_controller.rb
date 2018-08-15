@@ -1,6 +1,7 @@
 class ScoresController < ApplicationController
   def index
-    @scores = Score.page(params[:page]).per(10)
+    @q = Score.ransack(params[:q])
+    @scores = @q.result(:distinct => true).includes(:poem).page(params[:page]).per(10)
 
     render("scores/index.html.erb")
   end

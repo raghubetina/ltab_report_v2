@@ -3,6 +3,138 @@
     Bouts
     <a href="/bouts/new" class="btn btn-lg btn-success">New Bout</a>
   </h1>
+</div><div class="row mb-1">
+  <div class="col-md-12">
+    <%= search_form_for @q, :class => collapse_search_form, :id => "bouts_filters" do |f| %>
+      <p class="lead">Narrow results:</p>
+
+        <div class="form-group">
+    <%= f.label :title_cont, "Title contains" %>
+    <%= f.text_field :title_cont, :class => "form-control", :placeholder => "Title contains" %>
+  </div>
+
+<div class="form-group">
+  <%= f.label :length, "Length" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :length_gteq, :class => "form-control", :placeholder => "Length greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :length_lteq, :class => "form-control", :placeholder => "Length less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+    <%= f.label :location_cont, "Location contains" %>
+    <%= f.text_field :location_cont, :class => "form-control", :placeholder => "Location contains" %>
+  </div>
+
+<div class="form-group">
+          <%= f.label :begins_at, "Begins at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='begins_atgteqPicker'>
+                  <%= f.text_field :begins_at_gteq, :class => "form-control", :placeholder => "Begins at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='begins_atlteqPicker'>
+                  <%= f.text_field :begins_at_lteq, :class => "form-control", :placeholder => "Begins at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#begins_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#begins_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#begins_atgteqPicker').on("dp.change", function (e) {
+                  $('#begins_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#begins_atlteqPicker').on("dp.change", function (e) {
+                  $('#begins_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+<div class="form-group">
+          <%= f.label :created_at, "Created at" %>
+          <div class="row">
+            <div class='col-md-6 mb-1'>
+              <div class='input-group date' id='created_atgteqPicker'>
+                  <%= f.text_field :created_at_gteq, :class => "form-control", :placeholder => "Created at greater than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+
+            <div class='col-md-6'>
+              <div class='input-group date' id='created_atlteqPicker'>
+                  <%= f.text_field :created_at_lteq, :class => "form-control", :placeholder => "Created at less than or equal to" %>
+                  <span class="input-group-addon">
+                      <span class="glyphicon glyphicon-calendar"></span>
+                  </span>
+              </div>
+            </div>
+          </div>
+      </div>
+      <script type="text/javascript">
+          $(function () {
+              $('#created_atgteqPicker').datetimepicker({
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atlteqPicker').datetimepicker({
+                  useCurrent: false,
+                  format: 'YYYY-MM-DD hh:mm:SS'
+              });
+              $('#created_atgteqPicker').on("dp.change", function (e) {
+                  $('#created_atlteqPicker').data("DateTimePicker").minDate(e.date);
+              });
+              $('#created_atlteqPicker').on("dp.change", function (e) {
+                  $('#created_atgteqPicker').data("DateTimePicker").maxDate(e.date);
+              });
+          });
+      </script>
+
+        <div class="form-group">
+  <%= f.label :number, "Round Number" %>
+  <div class="row">
+    <div class='col-md-6 mb-1'>
+      <%= f.text_field :rounds_number_gteq, :class => "form-control", :placeholder => "Round Number greater than or equal to" %>
+    </div>
+    <div class='col-md-6'>
+      <%= f.text_field :rounds_number_lteq, :class => "form-control", :placeholder => "Round Number less than or equal to" %>
+    </div>
+  </div>
+</div>
+
+<div class="form-group">
+      <%= f.label :competition_name_cont, "Competition name contains" %>
+      <%= f.text_field :competition_name_cont, :class => "form-control", :placeholder => "Competition name contains" %>
+    </div>
+
+      <%= f.submit :class => "btn btn-primary btn-block mb-1" %>
+
+      <a href="/bouts" class="btn btn-default btn-block mb-1">Clear filters</a>
+    <% end %>
+    <a class="btn btn-default btn-block mb-1" data-toggle="collapse" href="#bouts_filters">
+      Show Filters
+    </a>
+  </div>
 </div>
 
 <div class="row">

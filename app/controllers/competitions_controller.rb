@@ -1,6 +1,7 @@
 class CompetitionsController < ApplicationController
   def index
-    @competitions = Competition.page(params[:page]).per(10)
+    @q = Competition.ransack(params[:q])
+    @competitions = @q.result(:distinct => true).includes(:bouts, :participations).page(params[:page]).per(10)
 
     render("competitions/index.html.erb")
   end

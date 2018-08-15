@@ -1,6 +1,7 @@
 class CheckinsController < ApplicationController
   def index
-    @checkins = Checkin.page(params[:page]).per(10)
+    @q = Checkin.ransack(params[:q])
+    @checkins = @q.result(:distinct => true).includes(:bout, :poet).page(params[:page]).per(10)
 
     render("checkins/index.html.erb")
   end

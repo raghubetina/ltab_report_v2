@@ -1,6 +1,7 @@
 class PenaltiesController < ApplicationController
   def index
-    @penalties = Penalty.page(params[:page]).per(10)
+    @q = Penalty.ransack(params[:q])
+    @penalties = @q.result(:distinct => true).includes(:deductions, :poems).page(params[:page]).per(10)
 
     render("penalties/index.html.erb")
   end

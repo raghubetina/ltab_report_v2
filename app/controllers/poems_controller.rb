@@ -1,6 +1,7 @@
 class PoemsController < ApplicationController
   def index
-    @poems = Poem.page(params[:page]).per(10)
+    @q = Poem.ransack(params[:q])
+    @poems = @q.result(:distinct => true).includes(:poet, :round, :deductions, :scores, :penalties).page(params[:page]).per(10)
 
     render("poems/index.html.erb")
   end
