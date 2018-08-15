@@ -6,6 +6,10 @@ class Penalty < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :poems,
+             :through => :deductions,
+             :source => :poem
+
   # Validations
 
 end

@@ -13,6 +13,10 @@ class Poem < ApplicationRecord
 
   # Indirect associations
 
+  has_many   :penalties,
+             :through => :deductions,
+             :source => :penalty
+
   # Validations
 
 end
