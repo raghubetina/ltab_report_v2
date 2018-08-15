@@ -17,7 +17,7 @@
       <% @checkins.each do |checkin| %>
       <tr>
         <td><%= checkin.poet.first_name %></td>
-        <td><%= checkin.bout_id %></td>
+        <td><%= checkin.bout.title %></td>
         <td>
           <a href="/checkins/<%= checkin.id %>" class="btn btn-primary">Show</a>
           <a href="/checkins/<%= checkin.id %>/edit" class="btn btn-warning">Edit</a>
