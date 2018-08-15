@@ -18,7 +18,7 @@
       <% @availabilities.each do |availability| %>
       <tr>
         <td><%= availability.participation.team_id %></td>
-        <td><%= availability.bout_id %></td>
+        <td><%= availability.bout.title %></td>
         <td><%= availability.assigned %></td>
         <td>
           <a href="/availabilities/<%= availability.id %>" class="btn btn-primary">Show</a>
