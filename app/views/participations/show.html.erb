@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Participation #<%= @participation.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Team</dt>
+      <dd><%= @participation.team_id %></dd>
+
+      <dt>Competition</dt>
+      <dd><%= @participation.competition_id %></dd>
+
+      <dt>Finals</dt>
+      <dd><%= @participation.finals %></dd>
+
+      <dt>Semifinals</dt>
+      <dd><%= @participation.semifinals %></dd>
+
+      <dt>Quarterfinals</dt>
+      <dd><%= @participation.quarterfinals %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/participations" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/participations/<%= @participation.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_participation/<%= @participation.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>
