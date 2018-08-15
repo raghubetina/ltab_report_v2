@@ -1,6 +1,9 @@
 class Participation < ApplicationRecord
   # Direct associations
 
+  has_many   :availabilities,
+             :dependent => :destroy
+
   has_many   :enrollments,
              :dependent => :destroy
 
