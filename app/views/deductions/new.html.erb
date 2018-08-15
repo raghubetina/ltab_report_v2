@@ -33,7 +33,7 @@
           Penalty
         </label>
 
-        <input type="text" id="penalty_id" name="penalty_id" placeholder="Penalty" class="form-control" value="<%= @deduction.penalty_id %>">
+        <%= select_tag(:penalty_id, options_from_collection_for_select(Penalty.all, :id, :title, @deduction.penalty_id), :class => "form-control") %>
       </div>
 
       <button class="btn btn-success">
