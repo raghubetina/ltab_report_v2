@@ -35,3 +35,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Bout has many rounds -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Rounds
+      </li>
+
+      <% @bout.rounds.each do |round| %>
+        <li class="list-group-item">
+          <a href="/rounds/<%= round.id %>">
+            <%= round.number %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/rounds/<%= round.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/rounds/<%= round.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_round/<%= round.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bout has many availabilities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Availabilities
+      </li>
+
+      <% @bout.availabilities.each do |availability| %>
+        <li class="list-group-item">
+          <a href="/availabilities/<%= availability.id %>">
+            <%= availability.participation_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/availabilities/<%= availability.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/availabilities/<%= availability.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_availability/<%= availability.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Bout has many checkins -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Checkins
+      </li>
+
+      <% @bout.checkins.each do |checkin| %>
+        <li class="list-group-item">
+          <a href="/checkins/<%= checkin.id %>">
+            <%= checkin.poet_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/checkins/<%= checkin.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/checkins/<%= checkin.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_checkin/<%= checkin.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

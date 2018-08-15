@@ -26,3 +26,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Team has many poets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Poets
+      </li>
+
+      <% @team.poets.each do |poet| %>
+        <li class="list-group-item">
+          <a href="/poets/<%= poet.id %>">
+            <%= poet.first_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/poets/<%= poet.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/poets/<%= poet.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_poet/<%= poet.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Team has many participations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Participations
+      </li>
+
+      <% @team.participations.each do |participation| %>
+        <li class="list-group-item">
+          <a href="/participations/<%= participation.id %>">
+            <%= participation.team_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/participations/<%= participation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/participations/<%= participation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_participation/<%= participation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Team has many coachings -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Coachings
+      </li>
+
+      <% @team.coachings.each do |coaching| %>
+        <li class="list-group-item">
+          <a href="/coachings/<%= coaching.id %>">
+            <%= coaching.team_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/coachings/<%= coaching.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/coachings/<%= coaching.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_coaching/<%= coaching.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Team has many coaches -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Coaches
+      </li>
+
+      <% @team.coaches.each do |user| %>
+        <li class="list-group-item">
+          <a href="/users/<%= user.id %>">
+            <%= user.email %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/users/<%= user.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/users/<%= user.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_user/<%= user.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

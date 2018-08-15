@@ -35,3 +35,127 @@
     </div>
   </div>
 </div>
+
+<!-- A Poet has many enrollments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Enrollments
+      </li>
+
+      <% @poet.enrollments.each do |enrollment| %>
+        <li class="list-group-item">
+          <a href="/enrollments/<%= enrollment.id %>">
+            <%= enrollment.participation_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Poet has many poems -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Poems
+      </li>
+
+      <% @poet.poems.each do |poem| %>
+        <li class="list-group-item">
+          <a href="/poems/<%= poem.id %>">
+            <%= poem.round_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/poems/<%= poem.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/poems/<%= poem.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_poem/<%= poem.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Poet has many checkins -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Checkins
+      </li>
+
+      <% @poet.checkins.each do |checkin| %>
+        <li class="list-group-item">
+          <a href="/checkins/<%= checkin.id %>">
+            <%= checkin.poet_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/checkins/<%= checkin.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/checkins/<%= checkin.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_checkin/<%= checkin.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Poet has many participations -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Participations
+      </li>
+
+      <% @poet.participations.each do |participation| %>
+        <li class="list-group-item">
+          <a href="/participations/<%= participation.id %>">
+            <%= participation.team_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/participations/<%= participation.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/participations/<%= participation.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_participation/<%= participation.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

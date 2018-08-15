@@ -35,3 +35,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Participation has many enrollments -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Enrollments
+      </li>
+
+      <% @participation.enrollments.each do |enrollment| %>
+        <li class="list-group-item">
+          <a href="/enrollments/<%= enrollment.id %>">
+            <%= enrollment.participation_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/enrollments/<%= enrollment.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/enrollments/<%= enrollment.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_enrollment/<%= enrollment.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Participation has many availabilities -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Availabilities
+      </li>
+
+      <% @participation.availabilities.each do |availability| %>
+        <li class="list-group-item">
+          <a href="/availabilities/<%= availability.id %>">
+            <%= availability.participation_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/availabilities/<%= availability.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/availabilities/<%= availability.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_availability/<%= availability.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Participation has many poets -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Poets
+      </li>
+
+      <% @participation.poets.each do |poet| %>
+        <li class="list-group-item">
+          <a href="/poets/<%= poet.id %>">
+            <%= poet.first_name %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/poets/<%= poet.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/poets/<%= poet.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_poet/<%= poet.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

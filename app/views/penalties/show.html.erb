@@ -26,3 +26,65 @@
     </div>
   </div>
 </div>
+
+<!-- A Penalty has many deductions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Deductions
+      </li>
+
+      <% @penalty.deductions.each do |deduction| %>
+        <li class="list-group-item">
+          <a href="/deductions/<%= deduction.id %>">
+            <%= deduction.poem_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/deductions/<%= deduction.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/deductions/<%= deduction.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_deduction/<%= deduction.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Penalty has many poems -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Poems
+      </li>
+
+      <% @penalty.poems.each do |poem| %>
+        <li class="list-group-item">
+          <a href="/poems/<%= poem.id %>">
+            <%= poem.round_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/poems/<%= poem.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/poems/<%= poem.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_poem/<%= poem.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>

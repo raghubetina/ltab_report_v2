@@ -35,3 +35,96 @@
     </div>
   </div>
 </div>
+
+<!-- A Poem has many deductions -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Deductions
+      </li>
+
+      <% @poem.deductions.each do |deduction| %>
+        <li class="list-group-item">
+          <a href="/deductions/<%= deduction.id %>">
+            <%= deduction.poem_id %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/deductions/<%= deduction.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/deductions/<%= deduction.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_deduction/<%= deduction.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Poem has many scores -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Scores
+      </li>
+
+      <% @poem.scores.each do |score| %>
+        <li class="list-group-item">
+          <a href="/scores/<%= score.id %>">
+            <%= score.position %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/scores/<%= score.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/scores/<%= score.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_score/<%= score.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+
+<!-- A Poem has many penalties -->
+
+<div class="row">
+  <div class="col-md-12">
+    <ul class="list-group">
+      <li class="list-group-item list-group-item-info">
+        Penalties
+      </li>
+
+      <% @poem.penalties.each do |penalty| %>
+        <li class="list-group-item">
+          <a href="/penalties/<%= penalty.id %>">
+            <%= penalty.title %>
+          </a>
+          <div class="btn-group btn-group-xs pull-right">
+            <a href="/penalties/<%= penalty.id %>" class="btn btn-primary">
+              <i class="fa fa-search-plus"></i>
+            </a>
+            <a href="/penalties/<%= penalty.id %>/edit" class="btn btn-warning">
+              <i class="fa fa-edit"></i>
+            </a>
+            <a href="/delete_penalty/<%= penalty.id %>" class="btn btn-danger" rel="nofollow">
+              <i class="fa fa-trash-o"></i>
+            </a>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+</div>
