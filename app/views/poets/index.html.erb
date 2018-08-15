@@ -1,0 +1,36 @@
+<div class="page-header">
+  <h1>
+    Poets
+    <a href="/poets/new" class="btn btn-lg btn-success">New Poet</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Team</th>
+        <th>First name</th>
+        <th>Last name</th>
+        <th>Phone number</th>
+        <th>Email</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @poets.each do |poet| %>
+      <tr>
+        <td><%= poet.team_id %></td>
+        <td><%= poet.first_name %></td>
+        <td><%= poet.last_name %></td>
+        <td><%= poet.phone_number %></td>
+        <td><%= poet.email %></td>
+        <td>
+          <a href="/poets/<%= poet.id %>" class="btn btn-primary">Show</a>
+          <a href="/poets/<%= poet.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_poet/<%= poet.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

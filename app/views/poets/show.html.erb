@@ -1,0 +1,37 @@
+<div class="page-header">
+  <h3>Poet #<%= @poet.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Team</dt>
+      <dd><%= @poet.team_id %></dd>
+
+      <dt>First name</dt>
+      <dd><%= @poet.first_name %></dd>
+
+      <dt>Last name</dt>
+      <dd><%= @poet.last_name %></dd>
+
+      <dt>Phone number</dt>
+      <dd><%= @poet.phone_number %></dd>
+
+      <dt>Email</dt>
+      <dd><%= @poet.email %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/poets" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/poets/<%= @poet.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_poet/<%= @poet.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Poet resource:
+  # CREATE
+  get "/poets/new", :controller => "poets", :action => "new"
+  post "/create_poet", :controller => "poets", :action => "create"
+
+  # READ
+  get "/poets", :controller => "poets", :action => "index"
+  get "/poets/:id", :controller => "poets", :action => "show"
+
+  # UPDATE
+  get "/poets/:id/edit", :controller => "poets", :action => "edit"
+  post "/update_poet/:id", :controller => "poets", :action => "update"
+
+  # DELETE
+  get "/delete_poet/:id", :controller => "poets", :action => "destroy"
+  #------------------------------
+
   # Routes for the Competition resource:
   # CREATE
   get "/competitions/new", :controller => "competitions", :action => "new"
