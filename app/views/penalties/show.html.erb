@@ -1,0 +1,28 @@
+<div class="page-header">
+  <h3>Penalty #<%= @penalty.id %></h3>
+</div>
+
+<div class="row">
+  <div class="col-md-12 mb-2">
+    <dl class="dl-horizontal">
+      <dt>Title</dt>
+      <dd><%= @penalty.title %></dd>
+
+      <dt>Points</dt>
+      <dd><%= @penalty.points %></dd>
+
+    </dl>
+
+    <div class="btn-group btn-group-justified">
+      <a href="/penalties" class="btn btn-primary">
+        Back
+      </a>
+      <a href="/penalties/<%= @penalty.id %>/edit" class="btn btn-warning">
+        Edit
+      </a>
+      <a href="/delete_penalty/<%= @penalty.id %>" class="btn btn-danger" rel="nofollow">
+        Delete
+      </a>
+    </div>
+  </div>
+</div>

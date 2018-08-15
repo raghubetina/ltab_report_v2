@@ -1,0 +1,30 @@
+<div class="page-header">
+  <h1>
+    Penalties
+    <a href="/penalties/new" class="btn btn-lg btn-success">New Penalty</a>
+  </h1>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table table-striped table-hover">
+      <tr>
+        <th>Title</th>
+        <th>Points</th>
+        <th>Actions</th>
+      </tr>
+
+      <% @penalties.each do |penalty| %>
+      <tr>
+        <td><%= penalty.title %></td>
+        <td><%= penalty.points %></td>
+        <td>
+          <a href="/penalties/<%= penalty.id %>" class="btn btn-primary">Show</a>
+          <a href="/penalties/<%= penalty.id %>/edit" class="btn btn-warning">Edit</a>
+          <a href="/delete_penalty/<%= penalty.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

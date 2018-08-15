@@ -1,4 +1,21 @@
 Rails.application.routes.draw do
+  # Routes for the Penalty resource:
+  # CREATE
+  get "/penalties/new", :controller => "penalties", :action => "new"
+  post "/create_penalty", :controller => "penalties", :action => "create"
+
+  # READ
+  get "/penalties", :controller => "penalties", :action => "index"
+  get "/penalties/:id", :controller => "penalties", :action => "show"
+
+  # UPDATE
+  get "/penalties/:id/edit", :controller => "penalties", :action => "edit"
+  post "/update_penalty/:id", :controller => "penalties", :action => "update"
+
+  # DELETE
+  get "/delete_penalty/:id", :controller => "penalties", :action => "destroy"
+  #------------------------------
+
   # Routes for the Poem resource:
   # CREATE
   get "/poems/new", :controller => "poems", :action => "new"
